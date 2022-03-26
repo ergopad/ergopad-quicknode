@@ -1,0 +1,23 @@
+version: '3'
+
+services:
+
+  quicknode:
+    container_name: quicknode
+    image: bellsoft/liberica-openjdk-alpine
+    restart: unless-stopped
+    volumes:      
+      - ./.ergo:/ergo/.ergo
+      - ./mainnet.conf:/ergo/ergo.conf
+      - ./ergo-4.0.23.jar:/ergo/ergo.jar
+    ports:
+      - 9053:9053
+      - 9030:9030
+    logging:
+        driver: "json-file"
+        options:
+            max-file: 5
+            max-size: 10m
+    command: 
+      - java -jar -Xmx4G -Dlogback.stdout.level=WARN -Dlogback.file.level=WARN /ergo/ergo.jar --mainnet -c /ergo/ergo.conf
+
