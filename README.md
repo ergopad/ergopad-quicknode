@@ -15,7 +15,7 @@ this may change at some point
 
 ## download main ergo jar file
 you may prefer to keep the original filenames and cp to ergo.jar for testing, and to avoid re-downloading
-> `wget https://github.com/ergoplatform/ergo/releases/download/v4.0.24/ergo-4.0.24.jar --show-progress -o ergo.jar`
+> `wget https://github.com/ergoplatform/ergo/releases/download/v4.0.24/ergo-4.0.24.jar`
 
 ## start node
 > `docker compose up -d`

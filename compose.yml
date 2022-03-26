@@ -8,16 +8,16 @@ services:
     restart: unless-stopped
     volumes:      
       - ./.ergo:/ergo/.ergo
-      - ./mainnet.conf:/ergo/ergo.conf
-      - ./ergo-4.0.23.jar:/ergo/ergo.jar
+      - ./ergo.conf:/app/ergo.conf
+      - ./ergo-4.0.24.jar:/app/ergo.jar
     ports:
       - 9053:9053
       - 9030:9030
+    working_dir: /app
     logging:
         driver: "json-file"
         options:
             max-file: 5
             max-size: 10m
-    command: 
-      - java -jar -Xmx4G -Dlogback.stdout.level=WARN -Dlogback.file.level=WARN /ergo/ergo.jar --mainnet -c /ergo/ergo.conf
+    command: java -jar -Xmx4G -Dlogback.stdout.level=WARN -Dlogback.file.level=WARN ergo.jar --mainnet -c ergo.conf
 
