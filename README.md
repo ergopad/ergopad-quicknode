@@ -11,7 +11,7 @@ this may change at some point
 > `wget -O ergo.7z https://pixeldrain.com/api/file/2rXoYooy?download`
 
 ### extract .ergo and optionally remove 7z archive
-> `7z x ergo.7z`
+> `7z x ergo.7z`<br>
 > `rm ergo.7z`
 
 ## download ergo jar file
