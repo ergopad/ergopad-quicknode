@@ -34,4 +34,4 @@ update the ergo.conf file with your key from the node blake2 api call
 
 ## If you want to refresh the container
 If you change something in the conf file or update to latest jar file, you may want to refresh your instance:
-> `docker compose --force-recreate -d`
+> `docker compose up --force-recreate -d`
