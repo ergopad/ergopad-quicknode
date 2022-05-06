@@ -4,12 +4,12 @@ services:
 
   quicknode:
     container_name: quicknode
-    image: bellsoft/liberica-openjdk-alpine
+    image: openjdk
     restart: unless-stopped
     volumes:      
-      - ./.ergo:/ergo/.ergo
+      - /data/ergo/.ergo:/ergo/.ergo
       - ./ergo.conf:/app/ergo.conf
-      - ./ergo-4.0.24.jar:/app/ergo.jar
+      - ./ergo-4.0.26.jar:/app/ergo.jar
     ports:
       - 9053:9053
       - 9030:9030
