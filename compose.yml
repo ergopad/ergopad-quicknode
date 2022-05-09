@@ -13,6 +13,8 @@ services:
     ports:
       - 9053:9053
       - 9030:9030
+    networks:
+      - net
     working_dir: /app
     logging:
         driver: "json-file"
@@ -21,3 +23,6 @@ services:
             max-size: 10m
     command: java -jar -Xmx4G -Dlogback.stdout.level=WARN -Dlogback.file.level=WARN ergo.jar --mainnet -c ergo.conf
 
+networks:
+  net:
+    driver: bridge
