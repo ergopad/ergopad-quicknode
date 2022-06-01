@@ -31,16 +31,20 @@ _Note: to update to the latest version, after these steps you can simply restart
 Create ergo.conf in the folder with all the other repo files.  This file will be referenced in the compose.yml file as: `./ergo.conf`
 ```ini
 ergo {
-    # this needs to match compose.yml mapping
     directory = "/ergo/.ergo"
-    
-    # if you want to mine on the node, change this to 'true'
-    node {
-        mining = false
-    }
-    
-    # this is not required
     wallet.secretStorage.secretDir = ${ergo.directory}"/wallet/keystore"
+
+    node {
+        # if you wish to allow mining on node; be aware of EIP-27
+        mining = true
+    }
+
+    # added in 4.0.31, if mining = true, this must be set
+    chain {
+        reemission {
+            checkReemissionRules = true
+        }
+    }
 }
 
 scorex {
@@ -58,9 +62,13 @@ scorex {
 ```
 
 ## .ergo folder
-Make sure you have proper permissions to the .ergo folder.  This is currently setup as a generic location: `/data/ergo/.ergo`
+Make sure you have proper permissions to the .ergo folder.  This is currently setup as a generic location: `/data/ergo/.ergo`<br>
+<br>
+Creating the network allows any container on the system to connect 
+directly to the node
 
 ## start node
+> `docker network create ergopad-net`
 > `docker compose up -d`
 
 ## check node logs from cli

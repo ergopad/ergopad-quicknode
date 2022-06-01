@@ -9,12 +9,12 @@ services:
     volumes:      
       - /data/ergo/.ergo:/ergo/.ergo
       - ./ergo.conf:/app/ergo.conf
-      - ./ergo-4.0.30.jar:/app/ergo.jar
+      - ./ergo-4.0.31.jar:/app/ergo.jar
     ports:
       - 9053:9053
       - 9030:9030
     networks:
-      - net
+      - ergopad-net
     working_dir: /app
     logging:
         driver: "json-file"
@@ -23,6 +23,7 @@ services:
             max-size: 10m
     command: java -jar -Xmx4G -Dlogback.stdout.level=WARN -Dlogback.file.level=WARN ergo.jar --mainnet -c ergo.conf
 
+# this may require cmd: docker network create ergopad-net
 networks:
-  net:
-    driver: bridge
+  ergopad-net:
+    external: true
