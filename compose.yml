@@ -16,6 +16,15 @@ services:
     networks:
       - ergopad-net
     working_dir: /app
+    deploy:
+      restart_policy:
+        condition: on-failure
+        delay: 10s
+        max_attempts: 5
+        window: 90s
+      resources:
+        limits:
+          cpu_percent: '0.25'
     logging:
         driver: "json-file"
         options:
