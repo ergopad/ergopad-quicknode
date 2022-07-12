@@ -9,7 +9,7 @@ services:
     volumes:      
       - /data/ergo/.ergo:/ergo/.ergo
       - ./ergo.conf:/app/ergo.conf
-      - ./ergo-4.0.31.jar:/app/ergo.jar
+      - ./ergo-4.0.34.jar:/app/ergo.jar
     ports:
       - 9053:9053
       - 9030:9030
@@ -22,9 +22,6 @@ services:
         delay: 10s
         max_attempts: 5
         window: 90s
-      resources:
-        limits:
-          cpu_percent: '0.25'
     logging:
         driver: "json-file"
         options:
