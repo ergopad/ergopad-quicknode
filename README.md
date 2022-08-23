@@ -9,7 +9,7 @@ Make sure you have the tools to extract a 7z file (for Ubuntu):
 
 ## download blockchain at ~700k height
 This URL may change at some point:
-> `wget -O ergo.7z https://pixeldrain.com/api/file/9T6b5f9z?download`
+> `wget -O ergo.7z https://pixeldrain.com/api/file/mJEzp72V?download`
 
 ### extract .ergo and optionally remove 7z archive
 Extract `ergo.7z` from the download directory in to `/data/ergo/`; this will create a .ergo folder and the path should match what is in `compose.yml`
